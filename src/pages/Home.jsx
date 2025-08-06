@@ -30,8 +30,12 @@ function Home () {
       if(!search.trim()) return
       if (loading) return
       setLoading(true)
-      try{
-        const searchformovie = await searchmovies(search);
+      searchformovie()
+    };
+      
+        const searchMovies = async () => {
+          try {
+            const searchformovie = await searchmovies(search);
         setMovies(searchformovie)
         setError(null)
         setLoading(false)
@@ -40,6 +44,11 @@ function Home () {
           setError("failed to search movies..");
       }
     };
+    useEffect ( () => {
+      if (search.length > 0) {
+        searchMovies();
+      }
+    },[search])
 
     return (
         <div className="home">

@@ -1,10 +1,10 @@
 import '../css/Favorites.css';
-import { useMovieContext } from "../assets/components/contexts/MovieContext";
+import { useMovieContext } from "../assets/contexts/MovieContext";
 import Moviecard from '../assets/components/Moviecard';
 
 
 function Favorites(){
-    const {favorites} = useMovieContext();
+    const {favorites} = useMovieContext()
     console.log("favorites" , favorites)
     if (favorites){
       return (
